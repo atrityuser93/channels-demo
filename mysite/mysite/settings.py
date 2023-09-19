@@ -129,3 +129,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Daphne ASGI app routing config
 ASGI_APPLICATION = 'mysite.asgi.application'
+
+# channel layers
+# redis channel layer - need cahnnel_redis and Redis should be running (from docker)
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {"hosts": [("127.0.0.1", 6379)],
+#                    },
+#     },
+# }
+
+# in memory channel layer - only for testing/development
+CHANNEL_LAYERS = {
+    "default": {"BACKEND": "channels.layers.InMemoryChannelLayer"
+                }
+}
